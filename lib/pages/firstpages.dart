@@ -12,7 +12,7 @@ class Firstpage extends StatelessWidget {
       ),
       body: Center(
         child: Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -21,48 +21,63 @@ class Firstpage extends StatelessWidget {
                   Image.asset("images/logo.png")
                 ],
               ),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(Icons.account_circle),
                   Text("abualasim")
                 ],
               ),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(Icons.cake),
                   Text("8 มิถุนายน 2545") 
                 ],
               ),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(Icons.phone),
                   Text("00000000000")
                 ],
               ),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(Icons.mail),
                   Text("642021164@tsu.ac.th")
                 ],
               ),
-              SizedBox(height: 16), // Add some space between the rows and the button
-              ElevatedButton(
-                onPressed: () {
-                  // Navigate to the next screen
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Tralwel()),
-                  );
-                },
-                child: Text("Next"),
-              ),
+              // const SizedBox(height: 16), // Add some space between the rows and the button
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.dataset_rounded),
+            label: 'Data',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
+        onTap: (index) {
+          // Handle navigation based on the selected tab
+          if (index == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const Tralwel()),
+            );
+          }
+        },
       ),
     );
   }
